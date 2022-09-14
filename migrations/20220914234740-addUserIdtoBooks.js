@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = {
-  async up (queryInterface, Sequelize) {
+  up (queryInterface, Sequelize) {
     /**
      * Add altering commands here.
      *
@@ -11,7 +11,7 @@ module.exports = {
      return queryInterface.addColumn('Books', 'UserId', { type: Sequelize.INTEGER, references: {model: "Users"} })
   },
 
-  async down (queryInterface, Sequelize) {
+  down (queryInterface, Sequelize) {
     /**
      * Add reverting commands here.
      *
