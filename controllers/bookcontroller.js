@@ -23,7 +23,19 @@ class BookController {
   }
 
   static borrow(req, res) {
-  
+    const bookId = req.params.bookId
+    const userId = req.session.user
+    console.log(req.session.user, 'req.session.user')
+
+    Book.update({
+      UserId: userId.id},
+      { where: {id: bookId}})
+    .then(_ => {
+      res.redirect('/books')
+    })
+    .catch(err => {
+      res.send(err)
+    })
   }
 
   static createBook (req, res) {
