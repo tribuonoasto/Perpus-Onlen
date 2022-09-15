@@ -3,7 +3,17 @@ const {User, Book, Category, Profile} = require('../models')
 
 class UserController {
   static showAllUser (req, res) {
-    res.send('user')
+    const options = {}
+    options.include = Profile
+
+
+    User.getUserBorrowingBooks(options)
+      .then(users => {
+        res.render('users', {users})
+      })
+      .catch (err => {
+        res.send(err)
+      })
   }
 
   static showUser (req, res) {
