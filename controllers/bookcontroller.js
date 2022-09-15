@@ -5,7 +5,7 @@ const { Op } = require("sequelize")
 class BookController {
   static showAllBooks (req, res) {
 
-    const { search, sortCategory } = req.query
+    const { search, filterCategory, sort, filterAvailable} = req.query
     const {id, role} = req.session.user
 
     let options = { include: [Category], where: {} }
@@ -13,8 +13,20 @@ class BookController {
       options.where.title = {[Op.iLike]: `%${search}%`}
     }
 
-    if(sortCategory) {
-      options.where.CategoryId = {[Op.eq]: sortCategory}
+    if(filterCategory) {
+      options.where.CategoryId = {[Op.eq]: filterCategory}
+    }
+
+    if(sort == 'title A-Z') {
+      options.order = [["title"]]
+    }
+
+    if(sort == 'title Z-A') {
+      options.order = [["title", "DESC"]]
+    }
+
+    if(filterAvailable == 'filterAvailable') {
+      options.where.UserId = null
     }
 
     let books
@@ -25,7 +37,7 @@ class BookController {
       return Category.findAll()
     })
     .then(categories => {
-      res.render ('books', {books, id, role, categories})
+      res.render ('books', {books, id, role, categories, search, filterCategory, sort, filterAvailable})
     })
     .catch(err => {
       res.send(err)
