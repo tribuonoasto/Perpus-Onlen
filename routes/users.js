@@ -1,5 +1,5 @@
 const express = require('express')
-const BookController = require('../controllers/bookcontroller')
+const UserController = require('../controllers/usercontroller')
 const router = express.Router()
 
 router.use((req, res, next) => {
@@ -11,7 +11,9 @@ router.use((req, res, next) => {
   }
 })
 
-router.get('/', BookController.showAllBooks)
+router.get('/profiles/:userId', UserController.showUser)
+router.get('/profiles/:userId/edit', UserController.editUserProfile)
+router.post('/profiles/:userId/edit', UserController.saveUserProfile)
 
 router.use((req, res, next) => {
   if(!req.session.user || req.session.user.role !== 'Admin') {
@@ -22,8 +24,6 @@ router.use((req, res, next) => {
   }
 })
 
-router.get('/add', BookController.createBook)
-router.post('/add', BookController.saveBook)
-
+router.get('/', UserController.showAllUser)
 
 module.exports = router
