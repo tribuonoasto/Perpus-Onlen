@@ -1,11 +1,31 @@
 'use strict'
+const { Book, Category} = require('../models')
+const { Op } = require("sequelize")
 
 const {Book, Category} = require('../models')
 
 class BookController {
   static showAllBooks (req, res) {
+
+    const { search } = req.query
     const {id, role} = req.session.user
-    res.render ('books', {id, role})
+
+    let options = { include: [Category], where: {} }
+    if(search) {
+      options.where.title = {[Op.iLike]: `%${search}%`}
+    }
+
+    Book.findAll(options)
+    .then(books => {
+      res.render ('books', {books, id, role})
+    })
+    .catch(err => {
+      res.send(err)
+    }) 
+  }
+
+  static borrow(req, res) {
+  
   }
 
   static createBook (req, res) {
