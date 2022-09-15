@@ -13,6 +13,7 @@ router.use((req, res, next) => {
 
 router.get('/', BookController.showAllBooks)
 router.get('/:bookId/borrow', BookController.borrow)
+router.get('/:bookId/return', BookController.return)
 
 router.use((req, res, next) => {
   if(!req.session.user || req.session.user.role !== 'Admin') {

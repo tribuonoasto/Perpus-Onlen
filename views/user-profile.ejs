@@ -8,6 +8,7 @@
 </head>
 <body>
   <h1><%= user.username %> Profiles </h1>
+  <a href="/books">Books List</a>
   <a href="/users/profiles/<%= user.id %>/edit">Edit Profiles</a>
 
   <div>
@@ -26,7 +27,28 @@
   </div>
 
   <div>
-    <table> TABEL BUKU YANG DI PINJAM</table>
+    <table border="1">
+      <thead>
+        <tr>
+          <th>Cover</th>
+          <th>Title</th>
+          <th>Description</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% user.Books.forEach(el => { %>
+        <tr>
+          <td><center><img src="<%= el.imgCover %>" height="200"></center></td>
+          <td><%= el.title %></td>
+          <td><%= el.description %></td>
+          <td>
+            <a href="/books/<%= el.id %>/return"><button>Return</button></a> 
+          </td>
+        </tr>
+        <% }) %>
+      </tbody>
+    </table>
   </div>
 </body>
 </html>

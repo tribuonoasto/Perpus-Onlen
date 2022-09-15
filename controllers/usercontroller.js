@@ -9,7 +9,7 @@ class UserController {
   static showUser (req, res) {
     const {id} = req.session.user
     const options = {}
-    options.include = Profile
+    options.include = [Book, Profile]
 
     User.findByPk(id, options)
       .then (user => {
