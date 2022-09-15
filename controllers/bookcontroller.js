@@ -25,11 +25,15 @@ class BookController {
   static borrow(req, res) {
     const bookId = req.params.bookId
     const userId = req.session.user
-    console.log(req.session.user, 'req.session.user')
-
-    Book.update({
+    
+    Profile.increment(
+      { totalBorrowed: 1 },
+      { where: { UserId: userId.id }})
+    .then(_ => {
+      return Book.update({
       UserId: userId.id},
       { where: {id: bookId}})
+    })
     .then(_ => {
       res.redirect('/books')
     })
