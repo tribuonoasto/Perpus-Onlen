@@ -7,9 +7,13 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
   <title>Perpus Onlen</title>
 </head>
-<body>
-  <h1>Perpus Onlen</h1>
+<body class="container">
+  <%- include('./partials/_navbar.ejs') %> 
 
+  <br>
+  <br>
+  <br>
+  <center>
   <canvas id="myChart" style="width:100%;max-width:700px"></canvas>
 
   <!-- <script>
@@ -102,10 +106,9 @@ dataTotalBorrowed = [3, 1, 5, 7, 4]
         document.getElementById('myChart'),
         config
       )
-</script>
-
-  <a href="/login">Login</a>
-  <a href="/register">Register</a>
+</script> 
+  </center>
+  
 
 </body>
 </html>
