@@ -31,6 +31,7 @@
     <p>
       Category <br>
       <select name="CategoryId" id="">
+        <option value=""selected disabled>---SELECT ONE---</option>
         <% categories.forEach(el => { %>
          <option value="<%= el.id %>"><%= el.name %></option>
         <% }) %>
