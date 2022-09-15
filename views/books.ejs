@@ -23,19 +23,27 @@
 
   <br>
   <br>
+
   <form action="/books" method="get">
-    <input type="text" name="search" placeholder="search by tittle...">
+    <input type="text" name="search" placeholder="search by tittle..." value= <%= search ? search : "" %>>
+    <select name="filterCategory">
+      <option value="">All Category</option>
+      <% categories.forEach(el => { %>
+       <option value="<%= el.id %>" <%= el.id == filterCategory ? 'selected' : "" %> ><%= el.name %></option>
+      <% }) %>
+    </select>
+    <select name="sort">
+      <option value="">All</option>
+      <option value="title A-Z" <%= sort == "title A-Z" ? 'selected' : "" %> >title A-Z</option>
+      <option value="title Z-A" <%= sort == "title Z-A" ? 'selected' : "" %> >title Z-A</option>
+    </select>
+    <select name="filterAvailable">
+      <option value="">All</option>
+      <option value="filterAvailable" <%= filterAvailable == "filterAvailable" ? 'selected' : "" %> >Available Only</option>
+    </select>
     <input type="submit" value="Search">
   </form>
 
-  <form action="/books" method="get">
-    <select name="sortCategory">
-      <% categories.forEach(el => { %>
-       <option value="<%= el.id %>"><%= el.name %></option>
-      <% }) %>
-    </select>
-    <input type="submit" value="Sort">
-  </form>
 
   <br>
   <table border="1">
