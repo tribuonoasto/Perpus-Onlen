@@ -1,6 +1,6 @@
 'use strict'
 
-const {User} = require('../models')
+const {User, Profile} = require('../models')
 const bcrypt = require('bcryptjs');
 
 class Controller {
@@ -41,6 +41,14 @@ class Controller {
     const {username, email, password, role} = req.body
 
     User.create({username, email, password, role})
+      .then((result)=> {
+        return Profile.create({
+          fullName: "",
+          address: "",
+          totalBorrowed: 0,
+          UserId: result.id
+        })
+      })
       .then (() => {
         res.redirect ('/')
       })

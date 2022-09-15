@@ -10,6 +10,8 @@
   <a href="/users/profiles/<%= id %> ">My Profile</a>
   <a href="/logout">logout</a>
   <h1>BOOK PAGE</h1>
-  <a href="/books/add">Add New Book</a>
+  <% if (role === 'Admin') { %>
+    <a href="/books/add">Add New Book</a>
+  <% } %>
 </body>
 </html>
