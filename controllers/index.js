@@ -33,7 +33,8 @@ class Controller {
   }
 
   static register(req, res) {
-    res.render ('register')
+    const {errors} = req.query
+    res.render ('register', {errors})
   }
 
   static saveUser(req, res) {
@@ -44,7 +45,15 @@ class Controller {
         res.redirect ('/')
       })
       .catch(err => {
-        res.send(err)
+        if(err.name == 'SequelizeValidationError') {
+          const errors = err.errors.map(el => el.message)
+          res.redirect(`/register?errors=${errors}`)
+        } else if (err.name == 'SequelizeUniqueConstraintError') {
+          const errors = `Username or Email is Already Used!`
+          res.redirect(`/register?errors=${errors}`)
+        }else { 
+          res.send(err)
+        }
       })
   }
 
