@@ -11,7 +11,10 @@
   <a href="/logout">logout</a>
   <h1>BOOK PAGE</h1>
 
-  <a href="/books/add"><button>Add New Book</button></a>
+  <% if (role === 'Admin') { %>
+    <a href="/books/add"><button>Add New Book</button></a>
+  <% } %>
+  
 
   <br>
   <br>
@@ -51,6 +54,5 @@
       <% }) %>
     </tbody>
   </table>
-
 </body>
 </html>

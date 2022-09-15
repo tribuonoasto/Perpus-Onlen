@@ -6,8 +6,9 @@ const {Book, Category} = require('../models')
 
 class BookController {
   static showAllBooks (req, res) {
+
     const { search } = req.query
-    const {id} = req.session.user
+    const {id, role} = req.session.user
 
     let options = { include: [Category], where: {} }
     if(search) {
@@ -16,7 +17,7 @@ class BookController {
 
     Book.findAll(options)
     .then(books => {
-      res.render ('books', {books, id})
+      res.render ('books', {books, id, role})
     })
     .catch(err => {
       res.send(err)
