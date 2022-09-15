@@ -47,8 +47,8 @@
         <td><%= el.Category.name %></td>
         <td><%= el.description %></td>
         <td>
-          <% if (el.UserId == 0) { %>
-            <a href="/books/<%= el.id %> borrow"><button>Borrow</button></a> 
+          <% if (el.UserId == null) { %>
+            <center><a href="/books/<%= el.id %>/borrow"><button>Borrow</button></a></center> 
           <% }else { %>
             <%= 'Book is not available' %> 
           <% } %>

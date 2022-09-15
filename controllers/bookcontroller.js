@@ -23,7 +23,23 @@ class BookController {
   }
 
   static borrow(req, res) {
-  
+    const bookId = req.params.bookId
+    const userId = req.session.user
+    
+    Profile.increment(
+      { totalBorrowed: 1 },
+      { where: { UserId: userId.id }})
+    .then(_ => {
+      return Book.update({
+      UserId: userId.id},
+      { where: {id: bookId}})
+    })
+    .then(_ => {
+      res.redirect('/books')
+    })
+    .catch(err => {
+      res.send(err)
+    })
   }
 
   static createBook (req, res) {
