@@ -26,7 +26,7 @@ module.exports = (sequelize, DataTypes) => {
     }
 
     get formatedDate () {
-      return formatDistance(subDays(this.createdAt, 3), this.createdAt, { addSuffix: true })
+      return formatDistance(this.createdAt, new Date(), [])
     }
   }
   Book.init({
