@@ -1,16 +1,38 @@
 'use strict'
 
+const {Book, Category} = require('../models')
+
 class BookController {
   static showAllBooks (req, res) {
     res.render ('books')
   }
 
   static createBook (req, res) {
-    res.render ('book-add')
+    const {errors} = req.query
+
+    Category.findAll()
+      .then (categories => {
+        res.render ('book-add', {categories, errors})
+      })
+      .catch (err => {
+        res.send (err)
+      })
   }
 
   static saveBook (req, res) {
-    res.render ('book-add')
+    const {title, imgCover, description, CategoryId} = req.body
+    Book.create({title, imgCover, description, CategoryId})
+      .then (() => {
+        res.redirect('/books')
+      })
+      .catch (err => {
+        if(err.name == 'SequelizeValidationError') {
+          const errors = err.errors.map(el => el.message)
+          res.redirect(`/books/add?errors=${errors}`)
+        }else { 
+          res.send(err)
+        }
+      })
   }
 }
 

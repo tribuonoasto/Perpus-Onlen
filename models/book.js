@@ -2,6 +2,7 @@
 const {
   Model
 } = require('sequelize');
+const randomIsbnGenerator = require('../helpers/randomIsbnGenerator');
 module.exports = (sequelize, DataTypes) => {
   class Book extends Model {
     /**
@@ -14,15 +15,63 @@ module.exports = (sequelize, DataTypes) => {
       Book.belongsTo(models.Category)
       Book.belongsTo(models.User)
     }
+
+    generateIsbn() {
+      let result = ""
+      let randomCode = randomIsbnGenerator()
+      let title = this.title.slice(0, 5)
+      result = `${title}-${randomCode}`
+      return result
+    }
   }
   Book.init({
-    title: DataTypes.STRING,
+    title: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notNull: {
+          msg: 'Title is Required!!'
+        },
+        notEmpty: {
+          msg: 'Title is Required!!'
+        },
+      }
+    },
     isbn: DataTypes.STRING,
-    imgCover: DataTypes.STRING,
-    description: DataTypes.TEXT
+    imgCover: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notNull: {
+          msg: 'Image Cover is Required!!'
+        },
+        notEmpty: {
+          msg: 'Image Cover is Required!!'
+        },
+        isUrl: {
+          msg: 'URL Image is Incorrect'
+        }
+      }
+    },
+    description: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notNull: {
+          msg: 'Description is Required!!'
+        },
+        notEmpty: {
+          msg: 'Description is Required!!'
+        },
+      }
+    }
   }, {
     sequelize,
     modelName: 'Book',
   });
+
+  Book.beforeCreate(value => {
+    value.isbn = value.generateIsbn()
+  })
   return Book;
 };
