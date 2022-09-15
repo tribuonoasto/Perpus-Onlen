@@ -1,6 +1,6 @@
 'use strict';
 const {
-  Model
+  Model, Op
 } = require('sequelize');
 
 const bcrypt = require('bcryptjs');
@@ -15,6 +15,15 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       User.hasMany(models.Book)
       User.hasOne(models.Profile)
+    }
+
+    static getUserBorrowingBooks (option) {
+      const options = {
+        ...option,
+        order: [['username']]
+      }
+
+      return User.findAll(options)
     }
 
   }
