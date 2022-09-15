@@ -53,6 +53,7 @@
         <th>Title</th>
         <th>ISBN</th>
         <th>Category</th>
+        <th>Created At</th>
         <th>Description</th>
         <th>Action</th>
       </tr>
@@ -64,6 +65,7 @@
         <td><%= el.title %></td>
         <td><%= el.isbn %></td>
         <td><%= el.Category.name %></td>
+        <td><%= el.formatedDate %></td>
         <td><%= el.description %></td>
         <td>
           <% if (el.UserId == null) { %>

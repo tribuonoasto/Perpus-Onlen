@@ -1,69 +1,69 @@
 [
     {
-    "UserId": 1,
+    "UserId": null,
     "title": "The Hobbit",
     "isbn": "889590266-1",
     "imgCover": "https://i.pinimg.com/564x/92/25/af/9225af21c4ddedb47ce63eeb1d0728cd.jpg",
     "description": "The Hobbit is set within Tolkien's fictional universe and follows the quest of home-loving Bilbo Baggins, the titular hobbit, to win a share of the treasure guarded by a dragon named Smaug. Bilbo's journey takes him from his light-hearted, rural surroundings into more sinister territory.",
     "CategoryId": 1
   }, {
-    "UserId": 2,
+    "UserId": null,
     "title": "Agatha Christie: Murder on The Orient Express",
     "isbn": "798459946-7",
     "imgCover": "https://i.pinimg.com/564x/91/5e/c4/915ec4f38d7ffd8917f4d87d03d0d078.jpg",
     "description": "Murder on the Orient Express is a work of detective fiction by English writer Agatha Christie featuring the Belgian detective Hercule Poirot. It was first published in the United Kingdom by the Collins Crime Club on 1 January 1934",
     "CategoryId": 2
   }, {
-    "UserId": 3,
+    "UserId": null,
     "title": "The Good Son",
     "isbn": "400631720-4",
     "imgCover": "https://i.pinimg.com/564x/85/28/bb/8528bb9816838c81daeecdb9d697ca94.jpg",
     "description": "'The Talented Mr. Ripley meets The Bad Seed in this breathless, chilling psychological thriller by the bestselling novelist known as Korea's Stephen King Who can you trust if you can't trust yourself?",
     "CategoryId": 3
   }, {
-    "UserId": 4,
+    "UserId": null,
     "title": "Jurnal Risa",
     "isbn": "669391425-X",
     "imgCover": "https://i.pinimg.com/564x/96/b2/1b/96b21b33fe9d17d1d6716863f6d035d6.jpg",
     "description": "Teruntuk saudara-saudaraku di Jurnal Risa. Saat ini akhirnya datang, kesempatan untuk menceritakan kisah kita bersama. Hal ini harus kulakukan karena aku memang tak sanggup bila sendirian, menghadapi segalanya seolah aku ini sang pemberani.",
     "CategoryId": 4
   }, {
-    "UserId": 5,
+    "UserId": null,
     "title": "Collapse: How Societies Choose to Fail or Succeed",
     "isbn": "710296054-9",
     "imgCover": "https://i.pinimg.com/564x/f9/8b/9c/f98b9c6a0e2e7ec36f54a34c3f615d87.jpg",
     "description": "In Collapse – How Societies Choose to Fail or Succeed by Jared Diamond examines societies of the past and how they addressed the great challenges they were faced with in surviving severe and long-term damage to the environment, damage that was usually out of negligence or ignorance, brought on by the societies themselves. Diamond begins his work with a look at Montana.",
     "CategoryId": 5
   }, {
-    "UserId": 1,
+    "UserId": null,
     "title": "Daun yang Jatuh tak Pernah Membenci Angin",
     "isbn": "417943406-7",
     "imgCover": "https://i.pinimg.com/564x/c6/08/fc/c608fc3ef0aff31f51c8b8337971588a.jpg",
     "description": "Daun Yang Jatuh Tak Pernah Membenci Angin adalah sebuah novel romantis karya Tere Liye, Diterbitkan pertama kali oleh Gramedia Pustaka Utama tahun 2014.Novel ini menceritakan Tania dan Danar yang memiliki perasaan satu sama lain tetapi terhalang oleh perbedaan umur.",
     "CategoryId": 6
   }, {
-    "UserId": 3,
+    "UserId": null,
     "title": "Supernova: Kesatria, Putri & Bintang Jatuh",
     "isbn": "485200049-2",
     "imgCover": "https://i.pinimg.com/564x/df/a2/39/dfa239a285d5aba04b1d7910cd8f8fb4.jpg",
     "description": "Supernova: Kesatria, Putri, & Bintang Jatuh adalah novel science fiction ilmiah karangan Dee Lestari yang diterbitkan pada tahun 2001. Novel ini merupakan bagian pertama dari enam seri Supernova.",
     "CategoryId": 7
   }, {
-    "UserId": 4,
+    "UserId": null,
     "title": "King of Scars",
     "isbn": "566162267-8",
     "imgCover": "https://i.pinimg.com/564x/fe/ee/f2/feeef2ed5505b38360bfba4e54d69b24.jpg",
     "description": "The dashing young king, Nikolai Lantsov, has always had a gift for the impossible. No one knows what he endured in his country's bloody civil war--and he intends to keep it that way. Now, as enemies gather at his weakened borders, Nikolai must find a way to refill Ravka's coffers, forge new alliances, and stop a rising threat to the once-great Grisha Army.",
     "CategoryId": 8
   }, {
-    "UserId": 1,
+    "UserId": null,
     "title": "Atomic Habits",
     "isbn": "697318852-4",
     "imgCover": "https://i.pinimg.com/564x/c1/13/e5/c113e5145d67572c1c21411b492ecbab.jpg",
     "description": "Atomic Habits is the definitive guide to breaking bad behaviors and adopting good ones in four steps, showing you how small, incremental, everyday routines compound into massive, positive change over time.",
     "CategoryId": 9
   }, {
-    "UserId": 1,
+    "UserId": null,
     "title": "Koala Kumal",
     "isbn": "249523840-8",
     "imgCover": "https://i.pinimg.com/564x/4a/08/be/4a08beb3b8d69cbf9c7859d9693df364.jpg",
