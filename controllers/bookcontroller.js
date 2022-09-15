@@ -1,9 +1,17 @@
 'use strict'
 const { Book, Category} = require('../models')
+const { Op } = require("sequelize")
 
 class BookController {
   static showAllBooks (req, res) {
-    Book.findAll({ include: [Category]})
+    const { search } = req.query
+
+    let options = { include: [Category], where: {} }
+    if(search) {
+      options.where.title = {[Op.iLike]: `%${search}%`}
+    }
+
+    Book.findAll(options)
     .then(books => {
       res.render ('books', {books})
     })
