@@ -5,7 +5,8 @@ const router = express.Router()
 
 router.use('/books', require('./books'))
 
-router.get('/', HomeController.home)
+router.get('/', HomeController.
+home)
 
 router.get('/logout', Controller.logout)
 
