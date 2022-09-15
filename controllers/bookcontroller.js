@@ -1,8 +1,19 @@
 'use strict'
+const { Book, Category} = require('../models')
 
 class BookController {
   static showAllBooks (req, res) {
-    res.render ('books')
+    Book.findAll({ include: [Category]})
+    .then(books => {
+      res.render ('books', {books})
+    })
+    .catch(err => {
+      res.send(err)
+    }) 
+  }
+
+  static borrow(req, res) {
+
   }
 
   static createBook (req, res) {

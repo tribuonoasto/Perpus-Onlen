@@ -1,12 +1,11 @@
 const express = require('express')
 const Controller = require('../controllers')
+const HomeController = require('../controllers/home-controller')
 const router = express.Router()
 
 router.use('/books', require('./books'))
 
-router.get('/', (req, res) => {
-  res.render('home')
-})
+router.get('/', HomeController.home)
 
 router.get('/logout', Controller.logout)
 

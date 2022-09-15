@@ -9,6 +9,39 @@
 <body>
   <a href="/logout">logout</a>
   <h1>BOOK PAGE</h1>
-  <a href="/books/add">Add New Book</a>
+
+  <a href="/books/add"><button>Add New Book</button></a>
+
+  <table border="1">
+    <thead>
+      <tr>
+        <th>Cover</th>
+        <th>Title</th>
+        <th>ISBN</th>
+        <th>Category</th>
+        <th>Description</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% books.forEach(el => { %>
+      <tr>
+        <td><center><img src="<%= el.imgCover %>" height="200"></center></td>
+        <td><%= el.title %></td>
+        <td><%= el.isbn %></td>
+        <td><%= el.Category.name %></td>
+        <td><%= el.description %></td>
+        <td>
+          <% if (el.UserId == 0) { %>
+            <a href="/books/<%= el.id %> borrow"><button>Borrow</button></a> 
+          <% }else { %>
+            <%= 'Book is not available' %> 
+          <% } %>
+        </td>
+      </tr>
+      <% }) %>
+    </tbody>
+  </table>
+
 </body>
 </html>

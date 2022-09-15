@@ -14,6 +14,7 @@ router.use((req, res, next) => {
 
 
 router.get('/', BookController.showAllBooks)
+router.get('/:bookId/borrow', BookController.borrow)
 
 
 router.use((req, res, next) => {
