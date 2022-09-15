@@ -6,11 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Books</title>
 </head>
-<body>
-  <%- include('./_navbar.ejs') %> 
-  
+<body class="container">
+  <%- include('./partials/_navbar.ejs') %> 
+
   <a href="/users/profiles/<%= id %> ">My Profile</a>
-  <a href="/logout">logout</a>
+  
   <h1>BOOK PAGE</h1>
 
   <% if (role === 'Admin') { %>
@@ -71,7 +71,9 @@
           <% if (el.UserId == null) { %>
             <center><a href="/books/<%= el.id %>/borrow"><button>Borrow</button></a></center> 
             <% if (role === 'Admin') { %>
-              <a href="/books/<%= el.id %>/delete"><button>Delete</button></a>
+              <center>
+              <a href="/books/<%= el.id %>/delete"><button>Delete</button></a>  
+              </center>
             <% } %>
           <% }else { %>
             <%= 'Book is not available' %> 

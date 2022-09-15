@@ -6,7 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>User Profile Edit</title>
 </head>
-<body>
+<body class="container">
+  <%- include('./partials/_navbar.ejs') %> 
+
   <h1><%= user.username %> Profiles Edit</h1>
   <div>
     <form action="/users/profiles/<%= user.id %>/edit" method="post">
