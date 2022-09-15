@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Profile Edit</title>
+</head>
+<body>
+  <h1><%= user.username %> Profiles Edit</h1>
+  <div>
+    <form action="/users/profiles/<%= user.id %>/edit" method="post">
+      <p>
+        Full Name <br>
+        <input type="text" name="fullName" value="<%= user.Profile.fullName %>"> 
+      </p>
+      <p>
+        Address <br>
+        <textarea name="address" id="" cols="30" rows="10"><%= user.Profile.address %> </textarea>
+      </p>
+      <p>
+        <input type="submit" value="Submit">
+      </p>
+    </form>
+  </div>
+
+</body>
+</html>

@@ -18,10 +18,59 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   User.init({
-    username: DataTypes.STRING,
-    email: DataTypes.STRING,
-    password: DataTypes.STRING,
-    role: DataTypes.STRING
+    username: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true,
+      validate: {
+        notNull: {
+          msg: 'Username is Required!!'
+        },
+        notEmpty: {
+          msg: 'Username is Required!!'
+        },
+      }
+    },
+    email: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true,
+      validate: {
+        notNull: {
+          msg: 'Email is Required!!'
+        },
+        notEmpty: {
+          msg: 'Email is Required!!'
+        },
+        isEmail: {
+          msg: 'Format Email is Incorrect!!'
+        }
+      }
+    },
+    password: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notNull: {
+          msg: 'Password is Required!!'
+        },
+        notEmpty: {
+          msg: 'Password is Required!!'
+        },
+      }
+    },
+    role: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notNull: {
+          msg: 'Role is required'
+        },
+        notEmpty: {
+          msg: 'Role is required'
+        },
+      }
+    }
   }, {
     sequelize,
     modelName: 'User',
@@ -32,6 +81,5 @@ module.exports = (sequelize, DataTypes) => {
     const hash = bcrypt.hashSync(`${value.password}`, salt);
     value.password = hash
   })
-
   return User;
 };

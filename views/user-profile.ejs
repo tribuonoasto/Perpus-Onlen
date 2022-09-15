@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Profile</title>
+</head>
+<body>
+  <h1><%= user.username %> Profiles </h1>
+  <a href="/users/profiles/<%= user.id %>/edit">Edit Profiles</a>
+
+  <div>
+    <p>
+      Full Name <br>
+      <%= user.Profile.fullName %> 
+    </p>
+    <p>
+      Address <br>
+      <%= user.Profile.address %> 
+    </p>
+    <p>
+      Total Books Borrowed <br>
+      <%= user.Profile.totalBorrowed %> 
+    </p>
+  </div>
+
+  <div>
+    <table> TABEL BUKU YANG DI PINJAM</table>
+  </div>
+</body>
+</html>
