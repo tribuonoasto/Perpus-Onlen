@@ -2,8 +2,6 @@
 const { Book, Category} = require('../models')
 const { Op } = require("sequelize")
 
-const {Book, Category} = require('../models')
-
 class BookController {
   static showAllBooks (req, res) {
 
