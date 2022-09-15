@@ -12,11 +12,11 @@
     <form action="/users/profiles/<%= user.id %>/edit" method="post">
       <p>
         Full Name <br>
-        <input type="text" name="fullName" value="<%= user.Profile.fullName %>"> 
+        <input type="text" name="fullName" value="<%= user.Profile?.fullName %>"> 
       </p>
       <p>
         Address <br>
-        <textarea name="address" id="" cols="30" rows="10"><%= user.Profile.address %> </textarea>
+        <textarea name="address" id="" cols="30" rows="10"><%= user.Profile?.address %> </textarea>
       </p>
       <p>
         <input type="submit" value="Submit">

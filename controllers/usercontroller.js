@@ -39,9 +39,8 @@ class UserController {
     
     Profile.update({fullName, address}, {
       where: {
-        id: +req.params.userId
+        UserId: +req.params.userId
       }
-      
     })
     .then (()=> {
       res.redirect(`/users/profiles/${+req.params.userId}`)

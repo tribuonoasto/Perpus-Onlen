@@ -4,8 +4,8 @@ const {Book, Category} = require('../models')
 
 class BookController {
   static showAllBooks (req, res) {
-    const {id} = req.session.user
-    res.render ('books', {id})
+    const {id, role} = req.session.user
+    res.render ('books', {id, role})
   }
 
   static createBook (req, res) {
