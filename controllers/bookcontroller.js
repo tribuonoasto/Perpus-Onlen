@@ -1,5 +1,5 @@
 'use strict'
-const { Book, Category} = require('../models')
+const { Book, Category, Profile} = require('../models')
 const { Op } = require("sequelize")
 
 class BookController {
@@ -51,6 +51,25 @@ class BookController {
         }else { 
           res.send(err)
         }
+      })
+  }
+
+  static return (req, res) {
+    const {id} = req.session.user
+
+    Book.update({ UserId: null }, {
+      where: {
+        id: +req.params.bookId
+      }
+    })
+      .then (() => {
+        return Profile.increment({totalBorrowed: -1}, { where: { UserId: id } })
+      })
+      .then (()=> {
+        res.redirect(`/users/profiles/${id}`)
+      })
+      .catch (err => {
+        res.send (err)
       })
   }
 }

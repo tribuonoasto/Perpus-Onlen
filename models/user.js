@@ -16,6 +16,7 @@ module.exports = (sequelize, DataTypes) => {
       User.hasMany(models.Book)
       User.hasOne(models.Profile)
     }
+
   }
   User.init({
     username: {
