@@ -19,7 +19,7 @@ module.exports = (sequelize, DataTypes) => {
     generateIsbn() {
       let result = ""
       let randomCode = randomIsbnGenerator()
-      let title = this.title.slice(0, 5)
+      let title = this.title.slice(0, 5).replaceAll(' ', '_')
       result = `${title}-${randomCode}`
       return result
     }

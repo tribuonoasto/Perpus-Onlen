@@ -26,6 +26,8 @@ router.use((req, res, next) => {
 
 router.get('/add', BookController.createBook)
 router.post('/add', BookController.saveBook)
+router.get('/:bookId/delete', BookController.deleteBook)
+
 
 
 module.exports = router

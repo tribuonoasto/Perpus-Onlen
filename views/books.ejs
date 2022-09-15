@@ -26,6 +26,15 @@
     <input type="submit" value="Search">
   </form>
 
+  <form action="/books" method="get">
+    <select name="sortCategory">
+      <% categories.forEach(el => { %>
+       <option value="<%= el.id %>"><%= el.name %></option>
+      <% }) %>
+    </select>
+    <input type="submit" value="Sort">
+  </form>
+
   <br>
   <table border="1">
     <thead>
@@ -49,6 +58,9 @@
         <td>
           <% if (el.UserId == null) { %>
             <center><a href="/books/<%= el.id %>/borrow"><button>Borrow</button></a></center> 
+            <% if (role === 'Admin') { %>
+              <a href="/books/<%= el.id %>/delete"><button>Delete</button></a>
+            <% } %>
           <% }else { %>
             <%= 'Book is not available' %> 
           <% } %>
