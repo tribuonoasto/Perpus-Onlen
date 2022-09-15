@@ -2,6 +2,7 @@
 const {
   Model
 } = require('sequelize');
+const { format, formatDistance, formatRelative, subDays } = require ('date-fns')
 const randomIsbnGenerator = require('../helpers/randomIsbnGenerator');
 module.exports = (sequelize, DataTypes) => {
   class Book extends Model {
@@ -22,6 +23,10 @@ module.exports = (sequelize, DataTypes) => {
       let title = this.title.slice(0, 5).replaceAll(' ', '_')
       result = `${title}-${randomCode}`
       return result
+    }
+
+    get formatedDate () {
+      return formatDistance(subDays(this.createdAt, 3), this.createdAt, { addSuffix: true })
     }
   }
   Book.init({
