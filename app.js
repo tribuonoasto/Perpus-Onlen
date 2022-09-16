@@ -4,7 +4,7 @@ const express = require('express')
 const router = require('./routes')
 const app = express()
 const session = require('express-session')
-const port = 3000
+const PORT = process.env.PORT || 3000
 
 app.set('view engine', 'ejs')
 app.use(express.urlencoded({extended:false}));
@@ -20,6 +20,6 @@ app.use(session({
 
 app.use('/', router)
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
+app.listen(PORT, () => {
+  console.log(`Example app listening on PORT ${PORT}`)
 })
