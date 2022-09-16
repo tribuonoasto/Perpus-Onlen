@@ -13,8 +13,10 @@
 
   <a href="/books"><button>Books List</button></a>
 
+  <br>
+  <br>
   <table border="1">
-    <thead>
+    <thead style="text-align:center">
       <tr>
         <th>User Name</th>
         <th>Full Name</th>
@@ -25,7 +27,7 @@
 
     <tbody>
       <% users.forEach(el => { %>
-        <tr>
+        <tr style="text-align:center">
           <td><%= el.username %></td>
           <td><%= el.Profile?.fullName %></td>
           <td><%= el.Profile?.address %></td>
