@@ -32,16 +32,16 @@ class BookController {
     let books
 
     Book.findAll(options)
-    .then(booksData => {
-      books = booksData
-      return Category.findAll()
-    })
-    .then(categories => {
-      res.render ('books', {books, id, role, categories, search, filterCategory, sort, filterAvailable})
-    })
-    .catch(err => {
-      res.send(err)
-    }) 
+      .then(booksData => {
+        books = booksData
+        return Category.findAll()
+      })
+      .then(categories => {
+        res.render ('books', {books, id, role, categories, search, filterCategory, sort, filterAvailable})
+      })
+      .catch(err => {
+        res.send(err)
+      }) 
   }
 
   static borrow(req, res) {
@@ -51,17 +51,17 @@ class BookController {
     Profile.increment(
       { totalBorrowed: 1 },
       { where: { UserId: userId.id }})
-    .then(_ => {
-      return Book.update({
-      UserId: userId.id},
-      { where: {id: bookId}})
-    })
-    .then(_ => {
-      res.redirect('/books')
-    })
-    .catch(err => {
-      res.send(err)
-    })
+      .then(_ => {
+        return Book.update({
+        UserId: userId.id},
+        { where: {id: bookId}})
+      })
+      .then(_ => {
+        res.redirect('/books')
+      })
+      .catch(err => {
+        res.send(err)
+      })
   }
 
   static createBook (req, res) {
