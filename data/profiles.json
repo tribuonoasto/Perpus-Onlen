@@ -1,26 +1,8 @@
-[{
+[
+  {
     "UserId": 1,
     "fullName": "Reggie Muffett",
     "address": "42979 Buhler Park",
     "totalBorrowed": 0
-  }, {
-    "UserId": 2,
-    "fullName": "Brit Le Marquand",
-    "address": "80258 Hazelcrest Junction",
-    "totalBorrowed": 0
-  }, {
-    "UserId": 3,
-    "fullName": "Doy Runnalls",
-    "address": "5379 Packers Place",
-    "totalBorrowed": 0
-  }, {
-    "UserId": 4,
-    "fullName": "Jordana Blythe",
-    "address": "947 Muir Junction",
-    "totalBorrowed": 0
-  }, {
-    "UserId": 5,
-    "fullName": "Sarene Belliss",
-    "address": "24 Shopko Junction",
-    "totalBorrowed": 0
-  }]
+  }
+]
